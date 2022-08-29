@@ -151,7 +151,7 @@ gdf.plot() ## plot geospatial file // hard to view in VSC, this is easier to see
 ### BIGQUERY
 ## first need to load api key that you created based on readme instructions
 # connect to bigquery, be sure to update the name of your file, this is currently mine
-client = bigquery.Client.from_service_account_json('ingestion/example_files/bigquery/hants-507-0569c50b5a7c.json') ## create bigquery client
+client = bigquery.Client.from_service_account_json('ingestion/example_files/bigquery/caroline-507-c98b1afca13c.json') ## create bigquery client
 ## query public dataset
 query_job = client.query("SELECT * FROM `bigquery-public-data.chicago_crime.crime` LIMIT 100") ## query public dataset
 ## get results
