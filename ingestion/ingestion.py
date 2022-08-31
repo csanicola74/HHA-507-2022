@@ -66,7 +66,7 @@ pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 # printing number of pages in pdf file
 print(pdfReader.numPages)
 # creating a page object
-pageObj = pdfReader.getPage(0)
+pageObj = pdfReader.getPage(1)
 # extracting text from page
 print(pageObj.extractText())
 
@@ -100,11 +100,11 @@ print(f_data.body) ## print html file body
 
 ### WEB REQUESTS
 ## get request for https://jsonplaceholder.typicode.com/posts // https://jsonplaceholder.typicode.com/ 
-r = requests.get('https://jsonplaceholder.typicode.com/posts') ## get request
+r = requests.get('https://jsonplaceholder.typicode.com/users') ## get request
 ## load as json 
 r_data = r.json() ## load request as json
 ## load into dataframe
-df = pd.read_json(r_data) ## read json file
+df = pd.read_json(r_data, orient='records') ## read json file
 
 
 ### SQLALCHEMY
@@ -158,3 +158,4 @@ query_job = client.query("SELECT * FROM `bigquery-public-data.chicago_crime.crim
 results = query_job.result() ## get results
 ## putresults into dataframe
 df = pd.DataFrame(results.to_dataframe()) ## put results into dataframe
+df.columns
