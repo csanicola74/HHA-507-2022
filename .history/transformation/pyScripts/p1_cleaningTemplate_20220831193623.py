@@ -1,16 +1,15 @@
 import pandas as pd
 import datetime as dt
-import uuid
+import uuid 
 import numpy as np
 
-# load in messy data
-df = pd.read_csv(
-    'transformation/dataFiles/raw/113243405_StonyBrookUniversityHospital_standardcharges.csv')
+# load in messy data 
+df = pd.read_csv('transformation/dataFiles/113243405_StonyBrookUniversityHospital_standardcharges.csv')
 
 # get a count of the number of rows and columns
 df.shape
 
-# clean the data
+## clean the data
 # list columns
 list(df)
 
@@ -21,12 +20,11 @@ list(df)
 
 
 # remove all special characters and whitespace ' ' from column names
-df.columns = df.columns.str.replace('[^A-Za-z0-9]+', '_')  # regex
+df.columns = df.columns.str.replace('[^A-Za-z0-9]+', '_') ## regex 
 list(df)
 
 # renaming columns
-# rename the column, where the first value is the old name and the second value is the new name
-df.rename(columns={'CAMPUS': 'hospital_name'})
+df.rename(columns={'CAMPUS':'hospital_name'}) # rename the column, where the first value is the old name and the second value is the new name
 
 # change all column names to lowercase
 df.columns = df.columns.str.lower()
@@ -38,8 +36,7 @@ df.columns = df.columns.str.upper()
 df.columns = df.columns.str.replace(' ', '_')
 
 # droping columns
-# remember this is CASE SENSITIVE
-df.drop(['Col1', 'Col2', 'Col3'], axis=1, inplace=True)
+df.drop(['Col1', 'Col2', 'Col3'], axis=1, inplace=True) # remember this is CASE SENSITIVE
 
 
 ############## REMOVING WHITESPACE ##############
@@ -49,8 +46,10 @@ df.drop(['Col1', 'Col2', 'Col3'], axis=1, inplace=True)
 # remove all whitespace for values within a specific column
 df['x'] = df['x'].str.strip()
 # remove all special characters and whitespace ' ' from a specific column
-# regex # regex tutorial/info: https://www.w3schools.com/python/python_regex.asp;  https://www.regular-expressions.info/refquick.html
-df['x'] = df['x'].str.replace('[^A-Za-z0-9]+', '_')
+df['x'] = df['x'].str.replace('[^A-Za-z0-9]+', '_') ## regex # regex tutorial/info: https://www.w3schools.com/python/python_regex.asp;  https://www.regular-expressions.info/refquick.html
+
+
+
 
 
 ############## COLUMN TYPES ##############
@@ -58,11 +57,11 @@ df['x'] = df['x'].str.replace('[^A-Za-z0-9]+', '_')
 ############## COLUMN TYPES ##############
 
 
-# get list of column types
-# want to see if strings are really strings, number are numbers, dates are dates, and boolean are booleans
+# get list of column types 
+## want to see if strings are really strings, number are numbers, dates are dates, and boolean are booleans
 df.dtypes
 
-# create a list of columns that are strings, and save as strings
+# create a list of columns that are strings, and save as strings 
 strings = df.select_dtypes(include=['object']).columns
 # create a list of columns that are numbers, and save as numbers
 numbers = df.select_dtypes(include=['int64', 'float64']).columns
@@ -73,15 +72,16 @@ booleans = df.select_dtypes(include=['bool']).columns
 # create a list of columns that are objects, and save as objects
 objects = df.select_dtypes(include=['object']).columns
 
-# you would then manually go through each of these, and determine if the column
-# type is appropriate for the data model you are creating
+## you would then manually go through each of these, and determine if the column 
+## type is appropriate for the data model you are creating
+
 
 
 ########## DATES ##########
 ########## DATES ##########
 ########## DATES ##########
 
-# dealing with dates
+# dealing with dates 
 # convert date column to datetime format
 df['date'] = pd.to_datetime(df['date'])
 # convert date column to datetime format like this: '%Y-%m-%d'
@@ -96,6 +96,7 @@ df['date'] = df['date'].dt.year
 df['date'] = df['date'].dt.dayofweek
 
 
+
 ########## MISSING DATA ##########
 ########## MISSING DATA ##########
 ########## MISSING DATA ##########
@@ -108,30 +109,27 @@ df.replace(to_replace='', value=np.nan, inplace=True)
 df.replace(to_replace=' ', value=np.nan, inplace=True)
 
 # drop rows with missing values
-df.dropna(inplace=True)  # drop rows with missing values
+df.dropna(inplace=True) # drop rows with missing values
 
-# droping specific rows
-df.drop([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], axis=0,
-        inplace=True)  # example of dropping rows
+# droping specific rows 
+df.drop([0,1,2,3,4,5,6,7,8,9], axis=0, inplace=True) # example of dropping rows
+
 
 
 ########## UNIQUE IDs ##########
 ########## UNIQUE IDs ##########
 ########## UNIQUE IDs ##########
 
-# Creating UNIQUE IDs
+### Creating UNIQUE IDs 
 
 # Example 1
-# create a unique id for each row using uuid
+## create a unique id for each row using uuid
 df['id'] = df.apply(lambda row: uuid.uuid4(), axis=1)
 
 # Example 2
-# create a function that will create a unique id for each row
-
-
+## create a function that will create a unique id for each row
 def create_id():
     return uuid.uuid4()
 
-
-# create a new column that will have a unique id for each row
+## create a new column that will have a unique id for each row
 df['id'] = df.apply(lambda row: create_id(), axis=1)
