@@ -15,3 +15,13 @@ valueVars = columnNames[8:]
 
 # transofmring with the melt function from a wide dataframe to a stacked dataframe
 stonybrook_modified = stonybrook.melt(id_vars=idVars, value_vars=valueVars)
+<< << << < HEAD
+== == == =
+
+print(stonybrook_modified.head(50))
+
+print(stonybrook_modified.head(50))
+
+stonybrook_modified.to_csv(
+    'transformation/dataFiles/clean/113243405_StonyBrookUniversityHospital_standardcharges_clean.csv')
+stonybrook_modified.shape
