@@ -1,7 +1,7 @@
-import pandas as pd
+import pandas as pd 
 
 ########################
-# load in the data
+### load in the data 
 ########################
 patients = pd.read_csv('enrichment/example_data/patients.csv')
 medications = pd.read_csv('enrichment/example_data/medications.csv')
@@ -19,30 +19,28 @@ medications['PATIENT']
 
 
 ###############
-# Below, we are going to take our medications table, and enrich it with some
-# patient information from our patients table.
+### Below, we are going to take our medications table, and enrich it with some 
+### patient information from our patients table.
 ###############
 
 df_patients_small = patients[['Id', 'CITY', 'STATE', 'COUNTY', 'ZIP']]
 print(df_patients_small.sample(10).to_markdown())
 df_patients_small.shape
 
-df_medications_small = medications[[
-    'PATIENT', 'CODE', 'DESCRIPTION', 'BASE_COST', 'PAYER']]
+df_medications_small = medications[['PATIENT', 'CODE', 'DESCRIPTION', 'BASE_COST', 'PAYER']]
 print(df_medications_small.sample(10).to_markdown())
 df_medications_small.shape
 
-combined_df = df_medications_small.merge(
-    df_patients_small, how='left', left_on='PATIENT', right_on='Id')
-combined_df = pd.merge(df_medications_small, df_patients_small,
-                       how='left', left_on='PATIENT', right_on='Id')
+combined_df = df_medications_small.merge(df_patients_small, how='left', left_on='PATIENT', right_on='Id')
+combined_df = pd.merge(df_medications_small, df_patients_small, how='left', left_on='PATIENT', right_on='Id')
 
 combined_df.columns
-# save to csv
+### save to csv 
 combined_df.to_csv('enrichment/example_data/combined_df.csv')
 combined_df.shape
 
 payers = pd.read_csv('enrichment/example_data/payers.csv')
+
 
 
 ####
@@ -53,30 +51,28 @@ pay_df.rename(columns={'CITY': 'CITY_PAYER'}, inplace=True)
 
 pat_df = patients[['Id', 'CITY', 'STATE', 'COUNTY', 'ZIP']]
 
-# First merge, will be between med_df and pay_df
+## First merge, will be between med_df and pay_df
 med_pay_df = med_df.merge(pay_df, how='left', left_on='PAYER', right_on='Id')
 med_pay_df = med_pay_df.drop(columns=['Id'])
 med_pay_df.shape
 
-# for the med_pay_df, we will drop duplicate rows based on PATIENT
+## for the med_pay_df, we will drop duplicate rows based on PATIENT
 med_pay_df_nodups = med_pay_df.drop_duplicates(subset=['PATIENT'])
 med_pay_df_nodups
 med_pay_df_nodups = med_pay_df_nodups.drop(columns=(['CODE']))
 
-# final step, we will add med_pay_df_nodups to our pat_df dataframe
-final_df = pat_df.merge(med_pay_df_nodups, how='left',
-                        left_on='Id', right_on='PATIENT')
+## final step, we will add med_pay_df_nodups to our pat_df dataframe
+final_df = pat_df.merge(med_pay_df_nodups, how='left', left_on='Id', right_on='PATIENT')
 
 
 ######
-patient_medication = df_patients_small.merge(
-    df_medications_small, how='left', left_on='Id', right_on='PATIENT')
+patient_medication = df_patients_small.merge(df_medications_small, how='left', left_on='Id', right_on='PATIENT')
 patient_medication.shape
-# to csv
+# to csv 
 patient_medication.to_csv('enrichment/example_data/patient_medication.csv')
 
 
-##### load in payers
+##### load in payers 
 payers_df = pd.read_csv('enrichment/example_data/payers.csv')
 payers_df.shape
 payers_df.head
@@ -91,22 +87,22 @@ patients_payers.columns
 patients_payers.to_csv('enrichment/example_data/patients_payers.csv')
 
 ########################
-# merge examples
+### merge examples 
 # add medications to patients
 ########################
 patients_simple = patients[['Id', 'SSN']]
 medications_simple = medications[['PATIENT', 'DESCRIPTION']]
 
-patients_medications = patients_simple.merge(medications_simple,
-                                             how='left',
-                                             left_on='Id', right_on='PATIENT')
+patients_medications = patients_simple.merge(medications_simple, 
+            how='left', 
+            left_on='Id', right_on='PATIENT')
 
 print(patients_medications.head(5).to_markdown())
 
 patients_medications = patients_medications.drop(columns=['PATIENT'])
 
 ########################
-# concat examples
+### concat examples 
 ########################
 
 patient_sample_1 = patients.sample(n=10)
