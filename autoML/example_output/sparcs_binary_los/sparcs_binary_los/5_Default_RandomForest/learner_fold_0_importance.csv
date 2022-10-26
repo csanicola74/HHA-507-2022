@@ -1,0 +1,33 @@
+feature,mean_importance
+Health Service Area,0.0
+Abortion Edit Indicator,0.0
+Birth Weight,0.0
+Payment Typology 3,0.0
+Payment Typology 2,0.0
+Gender,0.0
+Race,0.0
+Ethnicity,0.0
+Payment Typology 1,0.0
+CCS Procedure Code,0.0
+APR Risk of Mortality,2.046358416514238e-05
+Facility Name,3.354738266744262e-05
+Hospital County,3.5111522812014685e-05
+CCS Procedure Description,3.51789237808986e-05
+CCS Diagnosis Description,4.101494378948578e-05
+APR MDC Description,0.0003444916507847506
+Facility Id,0.00040205003496678325
+Emergency Department Indicator,0.0005614743634498765
+Zip Code - 3 digits,0.0013448293496470364
+APR DRG Code,0.002046894756638529
+APR DRG Description,0.002059148235328012
+Patient Disposition,0.002344210620155873
+Operating Certificate Number,0.0024466264113215176
+APR Severity of Illness Description,0.002536061991796046
+Age Group,0.0053822163313701045
+APR Medical Surgical Description,0.010550510753100418
+APR MDC Code,0.01342803902514893
+APR Severity of Illness Code,0.017514164057714145
+Type of Admission,0.024239071148630463
+CCS Diagnosis Code,0.03446150824375632
+Total Charges,0.04217296524577078
+Total Costs,0.3444961669080645

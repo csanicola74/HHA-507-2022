@@ -1,0 +1,178 @@
+{
+    "columns": [
+        "Health Service Area",
+        "Hospital County",
+        "Operating Certificate Number",
+        "Facility Id",
+        "Facility Name",
+        "Age Group",
+        "Zip Code - 3 digits",
+        "Gender",
+        "Race",
+        "Ethnicity",
+        "Type of Admission",
+        "Patient Disposition",
+        "Discharge Year",
+        "CCS Diagnosis Code",
+        "CCS Diagnosis Description",
+        "CCS Procedure Code",
+        "CCS Procedure Description",
+        "APR DRG Code",
+        "APR DRG Description",
+        "APR MDC Code",
+        "APR MDC Description",
+        "APR Severity of Illness Code",
+        "APR Severity of Illness Description",
+        "APR Risk of Mortality",
+        "APR Medical Surgical Description",
+        "Payment Typology 1",
+        "Payment Typology 2",
+        "Payment Typology 3",
+        "Birth Weight",
+        "Abortion Edit Indicator",
+        "Emergency Department Indicator",
+        "Total Charges",
+        "Total Costs"
+    ],
+    "rows": 17687,
+    "cols": 33,
+    "target_is_numeric": false,
+    "columns_info": {
+        "Health Service Area": [
+            "missing_values",
+            "categorical",
+            "few_categories"
+        ],
+        "Hospital County": [
+            "missing_values",
+            "categorical",
+            "many_categories"
+        ],
+        "Operating Certificate Number": [
+            "missing_values",
+            "scale"
+        ],
+        "Facility Id": [
+            "missing_values",
+            "scale"
+        ],
+        "Facility Name": [
+            "categorical",
+            "many_categories"
+        ],
+        "Age Group": [
+            "categorical",
+            "few_categories"
+        ],
+        "Zip Code - 3 digits": [
+            "missing_values",
+            "categorical",
+            "many_categories"
+        ],
+        "Gender": [
+            "categorical",
+            "few_categories"
+        ],
+        "Race": [
+            "categorical",
+            "few_categories"
+        ],
+        "Ethnicity": [
+            "categorical",
+            "few_categories"
+        ],
+        "Type of Admission": [
+            "categorical",
+            "few_categories"
+        ],
+        "Patient Disposition": [
+            "categorical",
+            "few_categories"
+        ],
+        "Discharge Year": [
+            "constant_column"
+        ],
+        "CCS Diagnosis Code": [
+            "scale"
+        ],
+        "CCS Diagnosis Description": [
+            "categorical",
+            "many_categories"
+        ],
+        "CCS Procedure Code": [
+            "scale"
+        ],
+        "CCS Procedure Description": [
+            "categorical",
+            "many_categories"
+        ],
+        "APR DRG Code": [
+            "scale"
+        ],
+        "APR DRG Description": [
+            "categorical",
+            "many_categories"
+        ],
+        "APR MDC Code": [
+            "scale"
+        ],
+        "APR MDC Description": [
+            "categorical",
+            "many_categories"
+        ],
+        "APR Severity of Illness Code": [
+            "scale"
+        ],
+        "APR Severity of Illness Description": [
+            "missing_values",
+            "categorical",
+            "few_categories"
+        ],
+        "APR Risk of Mortality": [
+            "missing_values",
+            "categorical",
+            "few_categories"
+        ],
+        "APR Medical Surgical Description": [
+            "categorical",
+            "few_categories"
+        ],
+        "Payment Typology 1": [
+            "categorical",
+            "few_categories"
+        ],
+        "Payment Typology 2": [
+            "missing_values",
+            "categorical",
+            "few_categories"
+        ],
+        "Payment Typology 3": [
+            "missing_values",
+            "categorical",
+            "few_categories"
+        ],
+        "Birth Weight": [
+            "scale"
+        ],
+        "Abortion Edit Indicator": [
+            "categorical",
+            "few_categories"
+        ],
+        "Emergency Department Indicator": [
+            "categorical",
+            "few_categories"
+        ],
+        "Total Charges": [
+            "scale"
+        ],
+        "Total Costs": [
+            "scale"
+        ]
+    },
+    "target_info": [
+        "convert_0_1"
+    ],
+    "n_features": 33,
+    "is_sample_weighted": false,
+    "n_classes": 2
+}
