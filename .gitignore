@@ -13,3 +13,6 @@ ingestion/example_files/bigquery/*.json
 # ignore all .csv files located in enrichment/example_data
 enrichment/example_data/**/*.csv
 
+
+# ignore __pycache__ directories
+**/__pycache__/
