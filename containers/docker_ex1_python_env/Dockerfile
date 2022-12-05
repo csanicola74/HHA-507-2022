@@ -4,4 +4,7 @@ FROM python:3.10.0-slim
 RUN python -m pip install \
     pandas \
     numpy \
+    matplotlib \
+    seaborn \
+    scikit-learn \
 

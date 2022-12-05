@@ -1,17 +1,20 @@
 version: "3.9"
 services:
+
   app1_flask:
     build: ./app1
     ports:
       - "8001:5001"
     volumes:
       - ./app1:/code
+
   app2_flask:
     build: ./app2
     ports:
       - "8002:5002"
     volumes:
       - ./app2:/code
+      
   app3_streamlit:
     build: ./app3
     ports:
